@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'SKPD')
+@section('title')
 
 @push('css')
 <link href="/assets/plugins/jquery-jvectormap/jquery-jvectormap.min.css" rel="stylesheet" />
