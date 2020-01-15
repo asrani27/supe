@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'DAFTAR SISWA')
+@section('title', 'DAFTAR SEKOLAH')
 
 @push('css')
 	<link href="/assets/plugins/datatables/css/dataTables.bootstrap4.css" rel="stylesheet" />
@@ -16,12 +16,12 @@
 			<div class="panel panel-inverse">
 				<!-- begin panel-heading -->
 				<div class="panel-heading">
-                <h4 class="panel-title">DAFTAR SISWA</h4>
+                <h4 class="panel-title">LAPORAN DAFTAR SEKOLAH</h4>
 				</div>
 				<!-- end panel-heading -->
 				<!-- begin alert -->
 				<div class="alert alert-secondary fade show">
-                    <a href="/siswa/tambah" class="btn btn-primary btn-xs"> <i class="fa fa-plus"></i> Tambah</a>
+                    <a href="/pdf/sekolah" class="btn btn-primary btn-sm"> <i class="fa fa-report"></i> Cetak</a>
 				</div>
 				<!-- end alert -->
 				<!-- begin panel-body -->
@@ -30,10 +30,7 @@
 						<thead>
 							<tr>
 								<th width="1%">No</th>
-								<th class="text-nowrap">NIS</th>
-								<th class="text-nowrap">Nama</th>
-								<th class="text-nowrap">Jkel</th>
-								<th class="text-nowrap">Status</th>
+								<th class="text-nowrap">Nama Sekolah</th>
 								<th class="text-nowrap">Aksi</th>
 							</tr>
 						</thead>
@@ -44,21 +41,9 @@
                             @foreach ($data as $item)
 							<tr class="odd gradeX">
                                 <td width="1%" class="f-s-600 text-inverse">{{$no++}}</td>
-								<td>{{$item->nis}}</td>
-                                <td>{{$item->nama}}</td>
-                                <td>{{$item->jkel}}</td>
-                                <td>
-									@if($item->status == 'A')
-										Aktif
-									@elseif($item->status == 'L')
-										Lulus
-									@elseif($item->status == 'B')
-										Berhenti
-									@endif
-								</td>
+								<td>{{$item->nama}}</td>
 								<td> 
-									<a href="/siswa/edit/{{$item->id}}" class="btn btn-primary btn-xs">edit</a>
-									<a href="/siswa/delete/{{$item->id}}" class="btn btn-danger btn-xs">delete</a>
+									<a href="/report/pegawai/{{$item->id}}/cetak" class="btn btn-primary btn-xs">Cetak Data Pegawai</a>
                                 </td>
 							</tr>
                             @endforeach

@@ -16,6 +16,8 @@ class Sekolah extends Migration
         Schema::create('sekolah', function (Blueprint $table) {
             $table->Increments('id');
             $table->string('nama');
+            $table->text('alamat');
+            $table->string('telp');
             $table->unsignedInteger('users_id')->nullable();;
             $table->timestamps();                   
             $table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('set null');

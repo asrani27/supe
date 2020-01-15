@@ -13,7 +13,7 @@ class Sekolah extends Model
         return $this->belongsTo(User::class, 'users_id');
     }
     
-    public function sekolah()
+    public function pegawai()
     {
         return $this->hasMany(Pegawai::class);
     }

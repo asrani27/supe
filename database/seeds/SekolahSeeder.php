@@ -24,6 +24,8 @@ class SekolahSeeder extends Seeder
         $d->roles()->attach($roleSekolah);
         $s = new Sekolah;
         $s->nama = 'MI Sungai Lulut';
+        $s->alamat = 'Jl Pramuka Km 6';
+        $s->telp = '0511-124354';
         $s->users_id = $d->id;
         $s->save();
     }

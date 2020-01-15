@@ -16,18 +16,18 @@
         <li class="{{ (request()->is('masterdata/jabatan')) ? 'active' : '' }}"><a href="/masterdata/jabatan">Jabatan</a></li>
     </ul>
 </li>
-<li class="has-sub {{ (request()->is('masterdata*')) ? 'active' : '' }}">
+<li class="has-sub {{ (request()->is('report*')) ? 'active' : '' }}">
     <a href="javascript:;">
         <b class="caret"></b>
         <i class="fa fa-th-large"></i>
         <span>Report Data</span>
     </a>
     <ul class="sub-menu">
-        <li class="{{ (request()->is('masterdata/sekolah')) ? 'active' : '' }}"><a href="#">Lap Sekolah</a></li>
-        <li class="{{ (request()->is('masterdata/jabatan')) ? 'active' : '' }}"><a href="#">Lap Pegawai</a></li>
-        <li class="{{ (request()->is('masterdata/jabatan')) ? 'active' : '' }}"><a href="#">Lap Siswa</a></li>
-        <li class="{{ (request()->is('masterdata/jabatan')) ? 'active' : '' }}"><a href="#">Lap Jumlah Pegawai Semua</a></li>
-        <li class="{{ (request()->is('masterdata/jabatan')) ? 'active' : '' }}"><a href="#">Lap Jumlah Siswa Semua</a></li>
+        <li class="{{ (request()->is('report/sekolah')) ? 'active' : '' }}"><a href="/report/sekolah">Lap Sekolah</a></li>
+        <li class="{{ (request()->is('report/pegawai')) ? 'active' : '' }}"><a href="/report/pegawai">Lap Pegawai</a></li>
+        <li class="{{ (request()->is('report/siswa')) ? 'active' : '' }}"><a href="/report/siswa">Lap Siswa</a></li>
+        <li class="{{ (request()->is('report/jmlpegawai')) ? 'active' : '' }}"><a href="/report/jmlpegawai">Lap Jumlah Pegawai Semua</a></li>
+        <li class="{{ (request()->is('report/jmlsiswa')) ? 'active' : '' }}"><a href="/report/jmlsiswa">Lap Jumlah Siswa Semua</a></li>
     </ul>
 </li>
 <li class="{{ (request()->is('kelola_user')) ? 'active' : '' }}">

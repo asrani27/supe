@@ -133,4 +133,32 @@ class SekolahController extends Controller
         Alert::success('Siswa Berhasil Di Simpan', 'Pesan');
         return redirect('/siswa');
     }
+
+    public function editsiswa($id)
+    {
+        $data = Siswa::find($id);
+        return view('sekolah.siswa.edit',compact('data'));
+    }
+
+    public function updatesiswa(Request $req, $id)
+    {
+        $s              = Siswa::find($id);
+        $s->nis         = $req->nis;
+        $s->nama        = $req->nama;
+        $s->alamat      = $req->alamat;
+        $s->jkel        = $req->jkel;
+        $s->nama_ayah   = $req->nama_ayah;
+        $s->nama_ibu    = $req->nama_ibu;
+        $s->status      = $req->status;
+        $s->save();
+        Alert::success('Siswa Berhasil Di Perbaharui', 'Pesan');
+        return redirect('/siswa');
+    }
+
+    public function deletesiswa($id)
+    {
+        $del = Siswa::find($id)->delete();
+        Alert::success('Siswa Berhasil Di Hapus', 'Pesan');
+        return back();
+    }
 }

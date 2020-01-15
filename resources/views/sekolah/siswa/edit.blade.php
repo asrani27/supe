@@ -38,54 +38,82 @@
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title">FORM TAMBAH</h4>
+					<h4 class="panel-title">FORM EDIT</h4>
 				</div>
 				<!-- end panel-heading -->
 				<!-- begin panel-body -->
 				<div class="panel-body panel-form">
-					<form class="form-horizontal form-bordered" method="POST" action="/masterdata/sekolah/simpan">
+                    <form class="form-horizontal form-bordered" method="POST" action="/siswa/update/{{$data->id}}">
                         @csrf
                         <div class="form-group row">
-							<label class="col-md-4 col-form-label">Nama Sekolah</label>
+							<label class="col-md-4 col-form-label">NIS</label>
 							<div class="col-md-8">
-                                <input class="form-control" type="text" name="nama" required />
+                            <input class="form-control" type="text" name="nis" required value="{{$data->nis}}"/>
 							</div>
                         </div>
                         <div class="form-group row">
-							<label class="col-md-4 col-form-label">Alamat Sekolah</label>
+							<label class="col-md-4 col-form-label">Nama Siswa</label>
 							<div class="col-md-8">
-                                <input class="form-control" type="text" name="alamat" required />
+                                <input class="form-control" type="text" name="nama" required  value="{{$data->nama}}"/>
 							</div>
                         </div>
                         <div class="form-group row">
-							<label class="col-md-4 col-form-label">Telp Sekolah</label>
+							<label class="col-md-4 col-form-label">Alamat</label>
 							<div class="col-md-8">
-                                <input class="form-control" type="text" name="telp" required />
+                                <input class="form-control" type="text" name="alamat" required  value="{{$data->alamat}}"/>
 							</div>
                         </div>
                         <div class="form-group row">
-							<label class="col-md-4 col-form-label">Username</label>
+							<label class="col-md-4 col-form-label">Jenis Kelamin</label>
 							<div class="col-md-8">
-                                <input class="form-control" type="text" name="username" required />
+                                <select name="jkel" class="form-control">
+                                    @if($data->jkel == "L")
+                                    <option value='L' seleceted> laki-Laki </option>
+                                    <option value='P'> Perempuan </option>
+                                    @else
+                                    <option value='L'> laki-Laki </option>
+                                    <option value='P' seleceted> Perempuan </option>
+                                    @endif
+                                </select>
 							</div>
                         </div>
                         <div class="form-group row">
-							<label class="col-md-4 col-form-label">Password</label>
+							<label class="col-md-4 col-form-label">Nama Ayah</label>
 							<div class="col-md-8">
-                                <input class="form-control" type="password" name="password" required/>
+                                <input class="form-control" type="text" name="nama_ayah" required value="{{$data->nama_ayah}}"/>
 							</div>
                         </div>
                         <div class="form-group row">
-							<label class="col-md-4 col-form-label">E-mail</label>
+							<label class="col-md-4 col-form-label">Nama Ibu</label>
 							<div class="col-md-8">
-                                <input class="form-control" type="email" name="email" required />
+                                <input class="form-control" type="text" name="nama_ibu" required value="{{$data->nama_ibu}}"/>
+							</div>
+                        </div>
+                        <div class="form-group row">
+							<label class="col-md-4 col-form-label">Status</label>
+							<div class="col-md-8">
+                                <select name="status" class="form-control">
+                                    @if($data->status == "A")
+                                    <option value="A" selected>Aktif</option>
+                                    <option value="L">Lulus</option>
+                                    <option value="B">Berhenti</option>
+                                    @elseif($data->status == "L")
+                                    <option value="A">Aktif</option>
+                                    <option value="L" selected>Lulus</option>
+                                    <option value="B">Berhenti</option>
+                                    @elseif($data->status == "B")
+                                    <option value="A">Aktif</option>
+                                    <option value="L">Lulus</option>
+                                    <option value="B" selected>Berhenti</option>
+                                    @endif
+                                </select>
 							</div>
                         </div>
 						<div class="form-group row">
 							<label class="col-md-4 col-form-label"></label>
 							<div class="col-md-8">
                                 <button type="submit" class="btn btn-success">SIMPAN</button>
-                                <a href="/masterdata/sekolah" class="btn btn-danger">KEMBALI</a>
+                                <a href="/siswa" class="btn btn-danger">KEMBALI</a>
 							</div>
                         </div>
 					</form>

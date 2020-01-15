@@ -52,6 +52,18 @@
 							</div>
                         </div>
                         <div class="form-group row">
+							<label class="col-md-4 col-form-label">Alamat Sekolah</label>
+							<div class="col-md-8">
+                            <input class="form-control" type="text" name="alamat" required value="{{$data->alamat}}"/>
+							</div>
+                        </div>
+                        <div class="form-group row">
+							<label class="col-md-4 col-form-label">Telp Sekolah</label>
+							<div class="col-md-8">
+                            <input class="form-control" type="text" name="telp" required value="{{$data->telp}}"/>
+							</div>
+                        </div>
+                        <div class="form-group row">
 							<label class="col-md-4 col-form-label">Username</label>
 							<div class="col-md-8">
                                 <input class="form-control" type="text" name="username" readonly value="{{$data->user->username}}"/>

@@ -68,6 +68,17 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
 
     //Route User
     Route::get('/kelola_user', 'MasterDataController@user');
+
+    //report
+    Route::get('/report/sekolah', 'ReportController@sekolah');
+    Route::get('/report/pegawai', 'ReportController@pegawai');
+    Route::get('/report/siswa', 'ReportController@siswa');
+    Route::get('/report/jmlpegawai', 'ReportController@jmlpegawai');
+    Route::get('/report/jmlsiswa', 'ReportController@jmlsiswa');
+
+    //pdf
+    Route::get('/pdf/sekolah', 'ReportController@pdfsekolah');
+
 });
 
 
@@ -83,6 +94,9 @@ Route::group(['middleware' => ['auth', 'role:sekolah']], function () {
     Route::get('/siswa', 'SekolahController@siswa');
     Route::post('/siswa/simpan', 'SekolahController@simpansiswa');
     Route::get('/siswa/tambah ', 'SekolahController@tambahsiswa');
+    Route::get('/siswa/edit/{id} ', 'SekolahController@editsiswa');
+    Route::get('/siswa/delete/{id} ', 'SekolahController@deletesiswa');
+    Route::post('/siswa/update/{id} ', 'SekolahController@updatesiswa');
     Route::get('/account', 'SekolahController@account');
     Route::post('/account', 'SekolahController@saveaccount');
     

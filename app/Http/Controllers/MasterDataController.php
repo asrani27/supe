@@ -97,7 +97,7 @@ class MasterDataController extends Controller
 
     public function simpanSekolah(Request $req)
     {
-        $roleSkpd     = Role::where('name','sekolah')->first();
+        $roleSekolah     = Role::where('name','sekolah')->first();
         $cek_username = User::where('username', $req->username)->first();
         if($cek_username == null)
         {
@@ -107,12 +107,14 @@ class MasterDataController extends Controller
             $user->email       = $req->email;
             $user->password    = bcrypt($req->password);
             $user->save();
-            $user->roles()->attach($roleSkpd);
+            $user->roles()->attach($roleSekolah);
 
-            $skpd           = new Sekolah;
-            $skpd->nama     = $req->nama;
-            $skpd->users_id = $user->id;
-            $skpd->save(); 
+            $sekolah           = new Sekolah;
+            $sekolah->nama     = $req->nama;
+            $sekolah->alamat   = $req->alamat;
+            $sekolah->telp     = $req->telp;
+            $sekolah->users_id = $user->id;
+            $sekolah->save(); 
             Alert::success('Sekolah Berhasil Disimpan', 'Pesan');
         }
         else
@@ -128,6 +130,8 @@ class MasterDataController extends Controller
         {
             $u = Sekolah::find($id);
             $u->nama = $req->nama;
+            $u->alamat = $req->alamat;
+            $u->telp = $req->telp;
             $u->save();
 
             $d = $u->user;
@@ -138,6 +142,8 @@ class MasterDataController extends Controller
         {
             $u = Sekolah::find($id);
             $u->nama = $req->nama;
+            $u->alamat = $req->alamat;
+            $u->telp = $req->telp;
             $u->save();
 
             $d = $u->user;
