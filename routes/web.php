@@ -78,6 +78,10 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
 
     //pdf
     Route::get('/pdf/sekolah', 'ReportController@pdfsekolah');
+    Route::get('/pdf/jmlpegawai', 'ReportController@pdfjmlp');
+    Route::get('/pdf/jmlsiswa', 'ReportController@pdfjmls');
+    Route::get('/report/pegawai/{id}/cetak', 'ReportController@pdfpegawai');
+    Route::get('/report/siswa/{id}/cetak', 'ReportController@pdfsiswa');
 
 });
 

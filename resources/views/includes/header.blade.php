@@ -8,7 +8,7 @@
 <div id="header" class="header {{ $headerClass }}">
 	<!-- begin navbar-header -->
 	<div class="navbar-header">
-		<a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> <b>SUPIANNOOR</b></a>
+		<a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> <b>APLIKASI MADRASAH</b></a>
 		@if (!$sidebarHide)
 		<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 			<span class="icon-bar"></span>

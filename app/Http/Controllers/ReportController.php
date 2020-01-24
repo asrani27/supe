@@ -47,6 +47,24 @@ class ReportController extends Controller
         return $pdf->download('pdfsekolah.pdf');
     }
 
+    public function pdfpegawai($id)
+    {
+        $sekolah = Sekolah::find($id);
+        $data = $sekolah->pegawai;
+        //dd($data);
+        $pdf = PDF::loadView('superadmin.report.pdfpegawai', compact('data'))->setPaper('f4','landscape');
+        return $pdf->download('pdfpegawai.pdf');
+    }
+    
+    public function pdfsiswa($id)
+    {
+        $sekolah = Sekolah::find($id);
+        $data = $sekolah->siswa;
+        //dd($data);
+        $pdf = PDF::loadView('superadmin.report.pdfsiswa', compact('data'))->setPaper('f4','landscape');
+        return $pdf->download('pdfsiswa.pdf');
+    }
+
     public function pegawai()
     {
         $data = Sekolah::all();
@@ -55,16 +73,49 @@ class ReportController extends Controller
     
     public function siswa()
     {
-        return view('superadmin.report.siswa');
+        $data = Sekolah::all();
+        return view('superadmin.report.siswa',compact('data'));
     }
     
     public function jmlpegawai()
     {
-        return view('superadmin.report.jmlpegawai');
+        $data = Sekolah::all();
+        $map = $data->map(function($item, $key){
+            $item->jml_pegawai = count($item->pegawai);
+            return $item;
+        });
+        return view('superadmin.report.jmlpegawai',compact('map'));
     }
     
+    public function pdfjmlp()
+    {
+        $data = Sekolah::all();
+        $map = $data->map(function($item, $key){
+            $item->jml_pegawai = count($item->pegawai);
+            return $item;
+        });
+        $pdf = PDF::loadView('superadmin.report.pdfjmlp', compact('map'))->setPaper('f4','landscape');
+        return $pdf->download('jumlahpegawai.pdf');
+    }
+    
+    public function pdfjmls()
+    {
+        $data = Sekolah::all();
+        $map = $data->map(function($item, $key){
+            $item->jml_siswa = count($item->siswa);
+            return $item;
+        });
+        $pdf = PDF::loadView('superadmin.report.pdfjmls', compact('map'))->setPaper('f4','landscape');
+        return $pdf->download('jumlahsiswa.pdf');
+    }
+
     public function jmlsiswa()
     {
-        return view('superadmin.report.jmlsiswa');
+        $data = Sekolah::all();
+        $map = $data->map(function($item, $key){
+            $item->jml_siswa = count($item->siswa);
+            return $item;
+        });
+        return view('superadmin.report.jmlsiswa',compact('map'));
     }
 }

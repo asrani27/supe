@@ -16,12 +16,12 @@
 			<div class="panel panel-inverse">
 				<!-- begin panel-heading -->
 				<div class="panel-heading">
-                <h4 class="panel-title">DAFTAR USER</h4>
+                <h4 class="panel-title">USER ADMINISTRATOR</h4>
 				</div>
 				<!-- end panel-heading -->
 				<!-- begin alert -->
 				<div class="alert alert-secondary fade show">
-                    <a href="/masterdata/user/tambah" class="btn btn-primary btn-xs"> <i class="fa fa-plus"></i> Tambah</a>
+                    {{-- <a href="/masterdata/user/tambah" class="btn btn-primary btn-xs"> <i class="fa fa-plus"></i> Tambah</a> --}}
 				</div>
 				<!-- end alert -->
 				<!-- begin panel-body -->
@@ -50,7 +50,7 @@
                                 <td>{{$item->role}}</td>
 								<td> 
 									<a href="/masterdata/skpd/{{$item->id}}/edit" class="btn btn-primary btn-xs">edit</a>
-									<a href="/masterdata/skpd/{{$item->id}}/delete" class="btn btn-danger btn-xs">delete</a>
+									{{-- <a href="/masterdata/skpd/{{$item->id}}/delete" class="btn btn-danger btn-xs">delete</a> --}}
                                 </td>
 							</tr>
                             @endforeach

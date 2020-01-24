@@ -312,11 +312,9 @@ class MasterDataController extends Controller
     {
         $user = User::all();
         $map = $user->map(function($item){
-            $item->skpd = $item->skpd;
             $item->role = $item->roles->first()->name;
             return $item;
-        })->where('skpd', null);
-        
+        })->where('role', 'superadmin');
         return view('superadmin.user.index',compact('map'));
     }
 }

@@ -16,12 +16,12 @@
 			<div class="panel panel-inverse">
 				<!-- begin panel-heading -->
 				<div class="panel-heading">
-                <h4 class="panel-title">LAPORAN DAFTAR PEGAWAI SEKOLAH</h4>
+                <h4 class="panel-title">LAPORAN JUMLAH PEGAWAI SEKOLAH</h4>
 				</div>
 				<!-- end panel-heading -->
 				<!-- begin alert -->
 				<div class="alert alert-secondary fade show">
-                    {{-- <a href="/pdf/sekolah" class="btn btn-primary btn-sm"> <i class="fa fa-report"></i> Cetak</a> --}}
+                    <a href="/pdf/jmlpegawai" class="btn btn-primary btn-sm"> <i class="fa fa-report"></i> Cetak</a>
 				</div>
 				<!-- end alert -->
 				<!-- begin panel-body -->
@@ -31,20 +31,19 @@
 							<tr>
 								<th width="1%">No</th>
 								<th class="text-nowrap">Nama Sekolah</th>
-								<th class="text-nowrap">Aksi</th>
+								<th class="text-nowrap">Jml Pegawai</th>
 							</tr>
 						</thead>
 						<tbody>
                             @php
                             $no = 1; 
                             @endphp
-                            @foreach ($data as $item)
+                            @foreach ($map as $item)
 							<tr class="odd gradeX">
                                 <td width="1%" class="f-s-600 text-inverse">{{$no++}}</td>
 								<td>{{$item->nama}}</td>
-								<td> 
-									<a href="/report/pegawai/{{$item->id}}/cetak" class="btn btn-primary btn-xs">Cetak Data Pegawai</a>
-                                </td>
+								<td>{{$item->jml_pegawai}}</td>
+								
 							</tr>
                             @endforeach
                         </tbody>
