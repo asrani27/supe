@@ -164,7 +164,7 @@ class MasterDataController extends Controller
     public function deleteSekolah($id)
     {
         try {
-            $del = Skpd::find($id)->delete();
+            $del = Sekolah::find($id)->delete();
             Alert::success('Sekolah Berhasil Di Hapus', 'Pesan');
         } catch (\Exception $e) {
             Alert::error('Sekolah Tidak Bisa Di Hapus, Karena Telah Memiliki Riwayat Data', 'Pesan');
