@@ -12,7 +12,7 @@
         <span>Data Master</span>
     </a>
     <ul class="sub-menu">
-        <li class="{{ (request()->is('masterdata/sekolah')) ? 'active' : '' }}"><a href="/masterdata/sekolah">Sekolah</a></li>
+        <li class="{{ (request()->is('masterdata/sekolah')) ? 'active' : '' }}"><a href="/masterdata/sekolah">Madrasah</a></li>
         <li class="{{ (request()->is('masterdata/jabatan')) ? 'active' : '' }}"><a href="/masterdata/jabatan">Jabatan</a></li>
     </ul>
 </li>
@@ -20,7 +20,7 @@
     <a href="javascript:;">
         <b class="caret"></b>
         <i class="fa fa-th-large"></i>
-        <span>Report Data</span>
+        <span>Laporan Madrasah</span>
     </a>
     <ul class="sub-menu">
         <li class="{{ (request()->is('report/sekolah')) ? 'active' : '' }}"><a href="/report/sekolah">Lap Sekolah</a></li>
