@@ -13,8 +13,8 @@ class FrontPageSeeder extends Seeder
     public function run()
     {
         $s = new FrontPage;
-        $s->title = 'Aplikasi Data Sekolah MI';
-        $s->description = 'Data Sekolah MI Kalimantan Selatan';
+        $s->title = 'Aplikasi Data Madrasah';
+        $s->description = 'Data Madrasah Provinsi Kalimantan Selatan';
         $s->wallpaper = 'inspektorat.png';
         $s->logo = 'logobjm.png';
         $s->save();
