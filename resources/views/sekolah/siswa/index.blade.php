@@ -34,6 +34,7 @@
 								<th class="text-nowrap">Nama</th>
 								<th class="text-nowrap">Jkel</th>
 								<th class="text-nowrap">Status</th>
+								<th class="text-nowrap">Wali Kelas</th>
 								<th class="text-nowrap">Aksi</th>
 							</tr>
 						</thead>
@@ -54,6 +55,13 @@
 										Lulus
 									@elseif($item->status == 'B')
 										Berhenti
+									@endif
+								</td>
+                                <td>
+									@if($item->pegawai == null)
+									-
+									@else
+									{{$item->pegawai->nama}}
 									@endif
 								</td>
 								<td> 

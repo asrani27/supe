@@ -109,6 +109,26 @@
                                 </select>
 							</div>
                         </div>
+                        <div class="form-group row">
+							<label class="col-md-4 col-form-label">Wali Kelas</label>
+							<div class="col-md-8">
+                                <select name="pegawai_id" class="form-control">
+									@if($data->pegawai_id == null)
+										@foreach ($peg as $item)
+											<option value="{{$item->id}}">{{$item->nama}}</option>
+										@endforeach
+									@else
+										@foreach ($peg as $item)
+											@if($item->id == $data->pegawai_id)
+											<option value="{{$item->id}}" selected>{{$item->nama}}</option>
+											@else
+											<option value="{{$item->id}}">{{$item->nama}}</option>
+											@endif
+										@endforeach
+									@endif
+                                </select>
+							</div>
+                        </div>
 						<div class="form-group row">
 							<label class="col-md-4 col-form-label"></label>
 							<div class="col-md-8">

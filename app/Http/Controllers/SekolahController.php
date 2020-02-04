@@ -114,7 +114,10 @@ class SekolahController extends Controller
     
     public function tambahsiswa()
     {
-        return view('sekolah.siswa.tambah');
+        $id_sekolah  = Auth::user()->sekolah->id;
+        
+        $peg = Pegawai::where('sekolah_id', $id_sekolah)->get();
+        return view('sekolah.siswa.tambah',compact('peg'));
     }
 
     public function simpansiswa(Request $req)
@@ -125,10 +128,11 @@ class SekolahController extends Controller
         $s->nama    = $req->nama;
         $s->alamat  = $req->alamat;
         $s->jkel    = $req->jkel;
-        $s->nama_ayah    = $req->nama_ayah;
-        $s->nama_ibu    = $req->nama_ibu;
-        $s->status = $req->status;
+        $s->nama_ayah  = $req->nama_ayah;
+        $s->nama_ibu   = $req->nama_ibu;
+        $s->status     = $req->status;
         $s->sekolah_id = $id_sekolah;
+        $s->pegawai_id = $req->pegawai_id;
         $s->save();
         Alert::success('Siswa Berhasil Di Simpan', 'Pesan');
         return redirect('/siswa');
@@ -137,7 +141,10 @@ class SekolahController extends Controller
     public function editsiswa($id)
     {
         $data = Siswa::find($id);
-        return view('sekolah.siswa.edit',compact('data'));
+        $id_sekolah  = Auth::user()->sekolah->id;
+        
+        $peg = Pegawai::where('sekolah_id', $id_sekolah)->get();
+        return view('sekolah.siswa.edit',compact('data','peg'));
     }
 
     public function updatesiswa(Request $req, $id)
@@ -150,6 +157,7 @@ class SekolahController extends Controller
         $s->nama_ayah   = $req->nama_ayah;
         $s->nama_ibu    = $req->nama_ibu;
         $s->status      = $req->status;
+        $s->pegawai_id = $req->pegawai_id;
         $s->save();
         Alert::success('Siswa Berhasil Di Perbaharui', 'Pesan');
         return redirect('/siswa');

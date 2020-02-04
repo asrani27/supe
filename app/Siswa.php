@@ -12,4 +12,9 @@ class Siswa extends Model
     {
         return $this->belongsTo(Sekolah::class);
     }
+
+    public function pegawai()
+    {
+        return $this->belongsTo(Pegawai::class);
+    }
 }
