@@ -28,6 +28,7 @@
 		<td class="auto-style2">Nama</td>
 		<td class="auto-style2">Alamat</td>
 		<td class="auto-style2">Telp</td>
+		<td class="auto-style2">Jabatan</td>
 	</tr>
     @php
     $no = 1; 
@@ -39,6 +40,7 @@
         <td class="auto-style2" >{{$item->nama}}</td>
         <td class="auto-style2" >{{$item->alamat}}</td>
         <td class="auto-style2" >{{$item->telp}}</td>
+        <td class="auto-style2" >{{$item->jabatan->nama}}</td>
     </tr>
     @endforeach
 </table>

@@ -28,6 +28,7 @@
 		<td class="auto-style2">Nama</td>
 		<td class="auto-style2">Jenis Kelamin</td>
 		<td class="auto-style2">Alamat</td>
+		<td class="auto-style2">Wali Kelas</td>
 	</tr>
     @php
     $no = 1; 
@@ -39,6 +40,13 @@
         <td class="auto-style2" >{{$item->nama}}</td>
         <td class="auto-style2" >{{$item->jkel}}</td>
         <td class="auto-style2" >{{$item->alamat}}</td>
+        <td class="auto-style2" >
+            @if($item->pegawai == null)
+            -
+            @else
+            {{$item->pegawai->nama}}
+            @endif    
+        </td>
     </tr>
     @endforeach
 </table>
