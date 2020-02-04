@@ -116,7 +116,11 @@ class SekolahController extends Controller
     {
         $id_sekolah  = Auth::user()->sekolah->id;
         
-        $peg = Pegawai::where('sekolah_id', $id_sekolah)->get();
+        $peg1 = Pegawai::where('sekolah_id', $id_sekolah)->get();
+        $peg = $peg1->map(function($item){
+            $item->nama_jabatan = strtolower($item->jabatan->nama);
+            return $item;
+        })->where('nama_jabatan','wali kelas');
         return view('sekolah.siswa.tambah',compact('peg'));
     }
 
@@ -143,7 +147,11 @@ class SekolahController extends Controller
         $data = Siswa::find($id);
         $id_sekolah  = Auth::user()->sekolah->id;
         
-        $peg = Pegawai::where('sekolah_id', $id_sekolah)->get();
+        $peg1 = Pegawai::where('sekolah_id', $id_sekolah)->get();
+        $peg = $peg1->map(function($item){
+            $item->nama_jabatan = strtolower($item->jabatan->nama);
+            return $item;
+        })->where('nama_jabatan','wali kelas');
         return view('sekolah.siswa.edit',compact('data','peg'));
     }
 
